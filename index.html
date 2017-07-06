@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<script src="https://connect.facebook.net/en_US/sdk.js"></script>
+		<script type="text/javascript" src="constants.js"></script>
+		<script type="text/javascript" src="game_manager.js"></script>
+		<script type="text/javascript" src="hud_manager.js"></script>
+		<script type="text/javascript" src="projectile.js"></script>
+		<script type="text/javascript" src="mob.js"></script>
+		<script type="text/javascript" src="character.js"></script>
+		<script type="text/javascript" src="monster.js"></script>
+		<script type="text/javascript" src="item.js"></script>
+		<script type="text/javascript" src="time.js"></script>
+		<script type="text/javascript">
+			
+			var _CANVAS;
+			var _CTX;
+			var _HUD;
+			
+			/*FB.init({
+				appId      : '1408628602489641',
+				status     : true,
+				xfbml      : true,
+				version    : 'v1.0' // or v2.6, v2.5, v2.4, v2.3
+			});
+			
+			FB.getLoginStatus(function(response) {
+				if (response.status === 'connected') {
+				console.log('Logged in.');
+				}
+				else {
+					FB.login(function(){}, {scope: 'publish_actions'});
+				}
+			});*/
+			
+			window.onload = function() {
+				_CANVAS = document.getElementById(CANVAS.ID);
+				_CTX = _CANVAS.getContext("2d");
+				
+				_HUD = new Hud();
+				
+				var game = new Game();
+				game.init();
+				game.start();
+			}
+		</script>
+	</head>
+	
+	<body>
+		<canvas style="border: 1px solid #000;" id="mycanvas" width="500" height="500" oncontextmenu="return false;">
+		</canvas>
+	</body>
+</html>
